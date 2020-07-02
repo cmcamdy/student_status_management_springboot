@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.ClassGradeInfoMapper">
+
+
+    <!--<cache eviction="LRU" flushInterval="60000" size="512" readOnly="true"></cache>-->
+
+    <!--LinkedLClassGradeInfoViewInfo> getClassGradeIClassGradeInfoViewIclassGradeInfoViewInfo);-->
+    <select id="getClassGradeInfo" resultType="com.manager.pojo.ClassGradeInfoView">
+        SELECT * FROM class_grade WHERE 1=1
+        <if test="cname!=null">
+            AND cname LIKE '%${cname}%'
+        </if>
+        <if test="studentName!=null">
+            AND studentName LIKE '%${studentName}%'
+        </if>
+        <if test="sid!=null">
+            AND sid LIKE '%${sid}%'
+        </if>
+    </select>
+
+
+    <!--LinkedList<ClassGradeInfoView> getClassGradeInfoMakeup(ClassGradeInfoView classGradeInfoView);-->
+
+    <select id="getClassGradeInfoMakeup" resultType="com.manager.pojo.ClassGradeInfoView">
+        SELECT * FROM class_grade WHERE grade &lt;= 60
+        <if test="cname!=null">
+            AND cname LIKE '%${cname}%'
+        </if>
+        <if test="studentName!=null">
+            AND studentName LIKE '%${studentName}%'
+        </if>
+        <if test="sid!=null">
+            AND sid LIKE '%${sid}%'
+        </if>
+    </select>
+
+
+    <update id="updateGrade">
+        update class set grade=${grade} where cid= (select cid from course where cname='${cname}') and sid = ${sid};
+    </update>
+
+    <!--Integer updateGradeMakeup(ClassGradeInfoView classGradeInfoView);-->
+    <update id="updateGradeMakeup">
+        update class set makeup_grade=${makeupGrade}
+
+        <if test="rebuild!=null">
+            , rebuild = ${rebuild}
+            , grade=NULL
+        </if>
+
+        where cid= (select cid from course where cname='${cname}') and sid = ${sid};
+    </update>
+</mapper>

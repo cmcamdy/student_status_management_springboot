@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.MajorMapper">
+
+
+    <!--<cache eviction="LRU"  size="512" readOnly="true"></cache>-->
+
+    <select id="getMajor" resultType="com.manager.pojo.Major">
+        SELECT * FROM major_credit_num
+    </select>
+    <!--LinkedList<Major> testgetMajor();-->
+    <!--<select id="testgetMajor" resultMap="test_p,test_p">-->
+        <!--call test_p();-->
+    <!--</select>-->
+
+    <resultMap id="test_p" type="com.manager.pojo.Major">
+        <result property="id" column="id"></result>
+        <result property="name" column="name"></result>
+        <result property="electives" column="electives"></result>
+    </resultMap>
+
+
+
+
+</mapper>

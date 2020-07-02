@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.LogMapper">
+    <!--<cache eviction="LRU" flushInterval="60000" size="512" readOnly="true"></cache>-->
+    <!--LinkedList<Log> getLog(@Param("from") Date from,@Param("to") Date to);-->
+
+    <select id="getLog" resultType="com.manager.pojo.Log">
+        SELECT * FROM log WHERE DATE(log_date) BETWEEN '${from}' AND  '${to}'
+    </select>
+</mapper>

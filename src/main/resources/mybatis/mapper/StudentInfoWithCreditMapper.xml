@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manager.mapper.StudentInfoWithCreditMapper">
+    <!--<cache eviction="LRU" flushInterval="60000" size="512" readOnly="true"></cache>-->
+
+
+    <!--LinkedList<StudentInfoWithCreditMapper> getStudentInfoByName( StudentInfoWithCreditMapper studentInfoWithCreditMapper);-->
+    <select id="getStudentInfoByName" resultType="map">
+        SELECT * FROM  student_info_with_credit
+    </select>
+
+</mapper>
