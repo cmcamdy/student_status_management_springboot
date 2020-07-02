@@ -2,12 +2,10 @@ server:
   port: 8081
 spring:
   datasource:
-#    username: your_username
-#    password: your_password
-#    url: URL_to_your_mysql_database
-    username: root
-    password: 1230
-    url: jdbc:mysql://www.aliyouth.cn:3306/data_student_manager?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: your_username
+    password: your_password
+    url: URL_to_your_mysql_database
+
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # 初始化大小，最小，最大
