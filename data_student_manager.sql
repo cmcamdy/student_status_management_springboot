@@ -3,7 +3,7 @@ Navicat MySQL Data Transfer
 
 Source Server         : Aliyouth
 Source Server Version : 80018
-Source Host           : www.aliyouth.cn:3306
+Source Host           : xxxxxx
 Source Database       : data_student_manager
 
 Target Server Type    : MYSQL
